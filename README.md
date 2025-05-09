@@ -98,7 +98,7 @@ Ensure you have the following installed on your machine:
   - View a comprehensive list of all books in the library.
 
 - **Search Functionality:**
-  - Search for books by title, author, or genre.
+  - Search for books by title, or genre.
   - Quickly locate books and check their availability.
 
 ---
