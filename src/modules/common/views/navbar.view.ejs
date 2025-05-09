@@ -1,0 +1,52 @@
+<nav
+  class="navbar navbar-expand-lg bg-dark mb-3"
+  style="border-bottom: 3px solid rgb(13 202 240)">
+  <div class="container">
+    <div class="d-flex">
+      <button
+        id="logoutButtonId"
+        class="text-danger rounded-2 border-0 py-1 px-4 bg-transparent fs-6 fw-bold">
+        <i class="bi-arrow-right-square"></i>
+        تسجيل الخروج
+      </button>
+    </div>
+
+    <div id="adminButtonsContainerId" class="navbar-nav gap-4 fw-bold fs-6">
+      <a class="button nav-link text-light" href="/">الصفحة الرئيسية</a>
+      <a class="button nav-link text-light" href="/library">المكتبة</a>
+    </div>
+
+    <a
+      class="navbar-brand d-flex gap-2 fs-5 fw-bold text-light align-items-center"
+      href="/">
+      هيئة الاستخبارات العسكرية
+      <img
+        src="/images/logo.png"
+        alt="Logo"
+        width="50"
+        height="50"
+        class="d-inline-block align-text-top" />
+    </a>
+  </div>
+</nav>
+<script>
+  const logoutButton = document.getElementById("logoutButtonId");
+  const adminButtonsContainer = document.getElementById(
+    "adminButtonsContainerId"
+  );
+  const adminButtons = document.querySelectorAll(
+    "#adminButtonsContainerId > a"
+  );
+  const adminButtonsUrlRegexp = [/^\/library/, /^\/histroical/];
+
+  logoutButton.addEventListener("click", () => {
+    axios
+      .get("/api/auth/logout")
+      .then(() => {
+        location.assign("/auth/login");
+      })
+      .catch(() => {
+        alert("خدث خطأ اثناء تسجيل الخروج");
+      });
+  });
+</script>
